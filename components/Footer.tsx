@@ -10,11 +10,11 @@ export default function Footer() {
             <span className="sr-only">Facebook</span>
             <FaFacebook className="h-6 w-6" aria-hidden="true" />
           </Link>
-          <Link href="https://instagram.com" className="text-gray-400 hover:text-pink-400">
+          <Link href="https://www.instagram.com/viratlifehospital?igsh=d2Vvajl3Y3h0eDJm" className="text-gray-400 hover:text-pink-400">
             <span className="sr-only">Instagram</span>
             <FaInstagram className="h-6 w-6" aria-hidden="true" />
           </Link>
-          <Link href="https://wa.me/919876543210" className="text-gray-400 hover:text-green-400">
+          <Link href="https://wa.me/917765956414" className="text-gray-400 hover:text-green-400">
             <span className="sr-only">WhatsApp</span>
             <FaWhatsapp className="h-6 w-6" aria-hidden="true" />
           </Link>
