@@ -19,13 +19,9 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-gray-900 shadow-md">
+    <header className="bg-gradient-to-b from-purple-600 to-pink-600 shadow-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
-        <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
-            <span className="text-xl font-bold text-white">🎓 Viratlife Institute of Medical Science (VIMS), Patna</span>
-          </Link>
-        </div>
+        
 
         {/* Mobile menu button */}
         <div className="flex lg:hidden ">

@@ -7,6 +7,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        blink: 'blink 1s step-start infinite',
+      },
+      keyframes: {
+        blink: {
+          '50%': { opacity: '0' },
+        },
+      },
       colors: {
         primary: {
           50: '#f0f9ff',

@@ -162,6 +162,36 @@ const courses = [
     description: "Various paramedical courses including lab technology, radiology, and more.",
     duration: "2-3 years",
   },
+  {
+    name: "Diploma Courses",
+    description: "Diploma programs in various specialties, including medicine, nursing, and more.",
+    duration: "1-2 years",
+  },
+  {
+    name: "Certificate Courses",
+    description: "Certificate programs in various medical fields, including anatomy, physiology, and more.",
+    duration: "1-2 months",
+  },
+  {
+    name: "PhD Programs",
+    description: "Doctoral programs in various medical and healthcare fields.",
+    duration: "3-5 years",
+  },
+  {
+    name: "Postgraduate Courses",
+    description: "Specialized training in various medical fields after completing MBBS.",
+    duration: "3 years",
+  },
+  {
+    name: "Fellowship Programs",
+    description: "Advanced training in specialized areas of medicine.",
+    duration: "1-2 years",
+  },
+  {
+    name: "Internship Programs",
+    description: "Practical experience and training in healthcare settings.",
+    duration: "1-2 months",
+  },
 ];
 
 const facilities = [
