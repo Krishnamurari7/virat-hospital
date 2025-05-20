@@ -3,12 +3,121 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
-import test from 'node:test';
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+
+const testimonials = [
+  {
+    name: "John Doe",
+    feedback: "Amazing experience, highly recommend!",
+    position: "Senior Developer",
+    department: "Engineering",
+    rating: 5,
+  },
+  {
+    name: "Jane Smith",
+    feedback: "Very caring and professional.",
+    position: "Product Manager",
+    department: "Product",
+    rating: 4,
+  },
+  {
+    name: "Michael Johnson",
+    feedback: "Helped me recover quickly!",
+    position: "Designer",
+    department: "Creative",
+    rating: 5,
+  },
+  {
+    name: "Emily Davis",
+    feedback: "Great staff and facilities.",
+    position: "Marketing Specialist",
+    department: "Marketing",
+    rating: 4,
+  },
+  {
+    name: "David Wilson",
+    feedback: "Highly skilled doctors and nurses.",
+    position: "Sales Executive",
+    department: "Sales",
+    rating: 5,
+  },
+  {
+    name: "Sarah Brown",
+    feedback: "Best hospital experience I've had.",
+    position: "HR Manager",
+    department: "Human Resources",
+    rating: 5,
+  },
+];
+
+const posters = [
+  { id: 1, image: "/images/post.jpg", alt: "Offer 1" },
+  { id: 2, image: "/images/postt.jpg", alt: "Offer 2" },
+  // { id: 3, image: "/images/offer3.jpg", alt: "Offer 3" },
+];
+
+function PosterCarousel() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % posters.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const goToPrev = () => {
+    setCurrent((prev) => (prev - 1 + posters.length) % posters.length);
+  };
+
+  const goToNext = () => {
+    setCurrent((prev) => (prev + 1) % posters.length);
+  };
+
+  return (
+    <div className="relative w-full max-w-4xl mx-auto overflow-hidden mt-12 rounded-2xl shadow-lg">
+      <div className="relative h-64 sm:h-80 md:h-96">
+        {posters.map((poster, index) => (
+          <img
+            key={poster.id}
+            src={poster.image}
+            alt={poster.alt}
+            className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              index === current ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+      </div>
+      <button
+        onClick={goToPrev}
+        className="absolute top-1/2 left-4 -translate-y-1/2 p-2 bg-black bg-opacity-50 text-white rounded-full hover:bg-opacity-80"
+      >
+        <ChevronLeft size={24} />
+      </button>
+      <button
+        onClick={goToNext}
+        className="absolute top-1/2 right-4 -translate-y-1/2 p-2 bg-black bg-opacity-50 text-white rounded-full hover:bg-opacity-80"
+      >
+        <ChevronRight size={24} />
+      </button>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        {posters.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`h-2 w-2 rounded-full ${
+              index === current ? "bg-white" : "bg-white/50"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   const videos = [
-    '/videos/onee.mp4', // add your video paths
+    '/videos/onee.mp4',
     '/videos/twoo.mp4',
     '/videos/three.mp4',
   ];
@@ -18,8 +127,7 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
-    }, 10000); // change video every 10 seconds
-
+    }, 10000);
     return () => clearInterval(interval);
   }, [videos.length]);
 
@@ -29,7 +137,6 @@ export default function Home() {
 
       {/* Hero Section with Background Video Slider */}
       <div className="relative isolate overflow-hidden">
-        {/* Background Videos */}
         <div className="absolute inset-0 -z-10">
           <video
             key={currentVideoIndex}
@@ -40,8 +147,6 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
           />
-          {/* Optional Overlay */}
-          {/* <div className="absolute inset-0 bg-blue-100/50" /> */}
         </div>
 
         <div className="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-40">
@@ -99,142 +204,57 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Key Features */}
-      <div className="bg-white py-24 sm:py-32">
+      {/* Poster Carousel Section */}
+      <PosterCarousel />
+
+      {/* Testimonials Section */}
+      <div className="bg-gray-50 py-8 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Everything you need for your health and education
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl underline decoration-blue-600 underline-offset-8">
+              What Our Patients Say
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-              {features.map((feature) => (
-                <div key={feature.name} className="flex flex-col">
-                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                    {feature.name}
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={testimonial.name}
+                  className="flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                >
+                  <dt className="flex items-center gap-x-3 text-lg font-semibold leading-7 text-gray-900">
+                    {testimonial.name}
                   </dt>
+                  <div className="mt-2 flex">
+                    {Array.from({ length: 5 }).map((_, starIndex) => (
+                      <Star
+                        key={starIndex}
+                        size={20}
+                        className={`${
+                          starIndex < testimonial.rating
+                            ? "text-yellow-400"
+                            : "text-gray-300"
+                        }`}
+                        fill={starIndex < testimonial.rating ? "#FACC15" : "none"}
+                      />
+                    ))}
+                  </div>
                   <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                    <p className="flex-auto">{feature.description}</p>
+                    <p className="flex-auto">{testimonial.feedback}</p>
+                    <p className="mt-6 text-sm font-semibold leading-6 text-blue-600">
+                      {testimonial.position}, {testimonial.department}
+                    </p>
                   </dd>
-                </div>
+                </motion.div>
               ))}
             </dl>
           </div>
         </div>
       </div>
-      {/* testimonials section*/}
-      <div className="bg-gray-50 py-8 sm:py-16">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl underline decoration-blue-600 underline-offset-8">
-            What Our Patients Say
-          </p>
-        </div>
-
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={testimonial.name}
-                className="flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-              >
-                <dt className="flex items-center gap-x-3 text-lg font-semibold leading-7 text-gray-900">
-                  {testimonial.name}
-                </dt>
-
-                {/* Star rating */}
-                <div className="mt-2 flex">
-                  {Array.from({ length: 5 }).map((_, starIndex) => (
-                    <Star
-                      key={starIndex}
-                      size={20}
-                      className={`${
-                        starIndex < testimonial.rating
-                          ? "text-yellow-400"
-                          : "text-gray-300"
-                      }`}
-                      fill={starIndex < testimonial.rating ? "#FACC15" : "none"}
-                    />
-                  ))}
-                </div>
-
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                  <p className="flex-auto">{testimonial.feedback}</p>
-                  <p className="mt-6 text-sm font-semibold leading-6 text-blue-600">
-                    {testimonial.position}, {testimonial.department}
-                  </p>
-                </dd>
-              </motion.div>
-            ))}
-          </dl>
-        </div>
-      </div>
-    </div>
     </div>
   );
 }
-
-const testimonials = [
-  {
-    name: "John Doe",
-    feedback: "Amazing experience, highly recommend!",
-    position: "Senior Developer",
-    department: "Engineering",
-    rating: 5,
-  },
-  {
-    name: "Jane Smith",
-    feedback: "Very caring and professional.",
-    position: "Product Manager",
-    department: "Product",
-    rating: 4,
-  },
-  {
-    name: "Michael Johnson",
-    feedback: "Helped me recover quickly!",
-    position: "Designer",
-    department: "Creative",
-    rating: 5,
-  },
-  {
-    name: "Emily Davis",
-    feedback: "Great staff and facilities.",
-    position: "Marketing Specialist",
-    department: "Marketing",
-    rating: 4,
-  },
-  {
-    name: "David Wilson",
-    feedback: "Highly skilled doctors and nurses.",
-    position: "Sales Executive",
-    department: "Sales",
-    rating: 5,
-  },
-  {
-    name: "Sarah Brown",
-    feedback: "Best hospital experience I've had.",
-    position: "HR Manager",
-    department: "Human Resources",
-    rating: 5,
-  },
-];
-
-const features = [
-  {
-    name: 'State-of-the-art Facilities',
-    description: 'Modern medical equipment and infrastructure for the best healthcare services and education.',
-  },
-  {
-    name: 'Expert Medical Team',
-    description: 'Highly qualified doctors and medical professionals dedicated to your well-being.',
-  },
-  {
-    name: 'Comprehensive Education',
-    description: 'Quality medical education with practical training and internship opportunities.',
-  },
-];
