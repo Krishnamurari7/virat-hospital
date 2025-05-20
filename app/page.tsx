@@ -151,7 +151,7 @@ export default function Home() {
 
         <div className="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-40">
           <div className="px-6 lg:px-0 lg:pt-4">
-            <div className="mx-auto max-w-2xl">
+            {/* <div className="mx-auto max-w-2xl">
               <div className="max-w-xl bg-slate-100 p-6 rounded-lg shadow-lg">
                 <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                   Welcome to Virat Life Hospital
@@ -171,7 +171,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -186,7 +186,7 @@ export default function Home() {
           <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
             <div className="inline-flex rounded-md shadow">
               <Link
-                href="/college/apply"
+                href="/apply"
                 className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-blue-600 hover:bg-blue-50"
               >
                 Apply Now

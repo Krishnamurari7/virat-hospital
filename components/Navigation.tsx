@@ -6,10 +6,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'About Us', href: '/about' },
+  { name: 'About', href: '/about' },
   { name: 'Departments', href: '/departments' },
-  { name: 'Doctors', href: '/doctors' },
-  { name: 'College', href: '/college' },
+  // { name: 'Doctors', href: '/doctors' },
+  // { name: 'College', href: '/college' },
   { name: 'Contact', href: '/contact' },
   { name: 'Gallery', href: '/gallery' },
 
@@ -19,16 +19,16 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 shadow-md">
+    <header className="bg-gray-900 shadow-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="text-2xl font-bold text-white">Virat Life Hospital</span>
+            <span className="text-xl font-bold text-white">🎓 Viratlife Institute of Medical Science (VIMS), Patna</span>
           </Link>
         </div>
 
         {/* Mobile menu button */}
-        <div className="flex lg:hidden">
+        <div className="flex lg:hidden ">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white transition hover:scale-110"
@@ -40,7 +40,7 @@ export default function Navigation() {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex lg:gap-x-12">
+        <div className="hidden lg:flex lg:gap-x-12 lg:flex-1 lg:justify-center">
           {navigation.map((item) => (
             <Link
               key={item.name}
@@ -55,10 +55,10 @@ export default function Navigation() {
         {/* Book Appointment Button */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
-            href="/appointment"
+            href="/apply"
             className="rounded-md bg-white/20 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-white/30 transition-all duration-300 backdrop-blur-md"
           >
-            Book Appointment
+            Apply Now
           </Link>
         </div>
       </nav>

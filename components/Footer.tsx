@@ -21,11 +21,11 @@ export default function Footer() {
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
           <p className="text-center text-xs leading-5 text-gray-400">
-            &copy; {new Date().getFullYear()} Virat Life Hospital Patna. All rights reserved.
+            &copy; {new Date().getFullYear()} Viratlife Institute of Medical Science (VIMS), Patna. All rights reserved.
           </p>
         </div>
           <div className="mt-4 text-center text-sm text-gray-400">
-            <p>Emergency: +91 1234567890</p>
+            <p>Emergency: +91 77659 56416</p>
             <p>Email: info@viratlifehospital.com</p>
             <p>Address: Patna, Bihar, India</p>
           </div>
