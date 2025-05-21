@@ -12,70 +12,144 @@ const backgroundImages = [
 
 const departments = [
   {
-    name: 'BSc Nursing',
-    description: 'Comprehensive nursing program focusing on patient care and clinical skills.',
-    
-  },
-  {
-    name: 'D.Pharma',
-    description: 'Diploma course focusing on pharmaceutical sciences and drug dispensing.',
-    
+    name: 'ANM',
+    description: 'Auxiliary Nursing Midwifery focusing on basic nursing care and midwifery skills.',
+    duration: '2 years',
+    qualification: '10+2 with Science Stream',
   },
   {
     name: 'GNM',
-    description: 'General Nursing and Midwifery program emphasizing nursing care and maternal health.',
-    
+    description: 'General Nursing and Midwifery providing comprehensive nursing education.',
+    duration: '3 years',
+    qualification: '10+2 with Science Stream',
   },
   {
-    name: 'ANM',
-    description: 'Auxiliary Nurse Midwifery course centered on basic nursing and midwifery training.',
-    
+    name: 'B.Sc. Nursing',
+    description: 'Bachelor of Science in Nursing covering in-depth nursing and healthcare training.',
+    duration: '4 years',
+    qualification: '10+2 (Biology)',
   },
   {
-    name: 'DOTT',
-    description: 'Diploma in Operation Theatre Technology covering surgical procedures and theatre management.',
-    
+    name: 'Diploma in Physiotherapy (DPT)',
+    description: 'Training in physical therapy and rehabilitation practices.',
+    duration: '3 years',
+    qualification: '10+2 with Science Stream',
   },
   {
-    name: 'DMLT',
-    description: 'Diploma in Medical Laboratory Technology focusing on clinical lab testing and diagnostics.',
-    
+    name: 'Diploma in Occupational Therapy (DOT)',
+    description: 'Education in techniques to aid patients in daily living and working.',
+    duration: '3 years',
+    qualification: '10+2 with Science Stream',
   },
   {
-    name: 'DRIT',
-    description: 'Diploma in Radio Imaging Technology for diagnostic imaging and radiographic procedures.',
-    
+    name: 'Diploma in Orthotics and Prosthetics (DOP)',
+    description: 'Training in designing orthotic and prosthetic devices.',
+    duration: '3 years',
+    qualification: '10+2 with Science Stream',
   },
   {
-    name: 'DPCM',
-    description: 'Diploma in Patient Care Management aimed at healthcare support and patient handling skills.',
-    
+    name: 'Diploma in Operation Theatre Assistant (DOTA)',
+    description: 'Preparation for assisting in surgical procedures and operation theatre duties.',
+    duration: '2 years',
+    qualification: '10+2 with Science Stream',
   },
   {
-    name: 'B.VOC MLT',
-    description: 'Bachelor in Medical Laboratory Technology emphasizing diagnostic techniques and lab management.',
-    
+    name: 'Diploma in Ophthalmic Assistant (DOA)',
+    description: 'Study focused on eye care and assisting ophthalmologists.',
+    duration: '2 years',
+    qualification: '10+2 with Science Stream',
   },
   {
-    name: 'B.VOC RIT',
-    description: 'Bachelor in Radiology Imaging Technology covering modern radiographic techniques.',
-    
+    name: 'Diploma in Medical Laboratory Technician (DMLT)',
+    description: 'Training in lab testing techniques and diagnostics.',
+    duration: '2 years',
+    qualification: '10+2 with Science Stream',
   },
   {
-    name: 'B.VOC OTT',
-    description: 'Bachelor in Operation Theatre Technology preparing students for OT procedures and sterilization.',
-    
+    name: 'Diploma in Sanitary Inspector (DSI)',
+    description: 'Training for maintaining sanitation and public health standards.',
+    duration: '2 years',
+    qualification: '10+2 with Science Stream',
   },
   {
-    name: 'B.VOC HM',
-    description: 'Bachelor in Hospital Management focusing on healthcare administration and operations.',
-    
+    name: 'Diploma in Medical Radiography (DMR)',
+    description: 'Training in medical imaging and radiographic techniques.',
+    duration: '2 years',
+    qualification: '10+2 with Science Stream',
   },
   {
-    name: 'B.VOC PCM',
-    description: 'Bachelor in Patient Care Management emphasizing patient care and clinical support.',
-    
+    name: 'Diploma in ECG (DECG)',
+    description: 'Training in electrocardiogram procedures and heart monitoring.',
+    duration: '2 years',
+    qualification: '10+2 with Science Stream',
   },
+  {
+    name: 'Diploma in Hearing Language And Speech Therapy (DHLS)',
+    description: 'Training in therapy techniques for speech and hearing disorders.',
+    duration: '2 years',
+    qualification: '10+2 with Science Stream',
+  },
+  {
+    name: 'Bachelor in Physiotherapy (BPT)',
+    description: 'Advanced education in physical therapy and rehabilitation sciences.',
+    duration: '4.5 years',
+    qualification: '10+2 with Science Stream',
+  },
+  {
+    name: 'Bachelor of Occupational Therapy (BOT)',
+    description: 'Comprehensive course in occupational therapy and patient rehabilitation.',
+    duration: '4.5 years',
+    qualification: '10+2 with Science Stream',
+  },
+  {
+    name: 'Bachelor of Orthotics and Prosthetics (BOP)',
+    description: 'In-depth study in the design and application of prosthetic and orthotic devices.',
+    duration: '4.5 years',
+    qualification: '10+2 with Science Stream',
+  },
+  {
+    name: 'Bachelor of Operation Theatre Technology (BOTT)',
+    description: 'Education in surgical equipment handling and operating theatre support.',
+    duration: '4 years',
+    qualification: '10+2 with Science Stream',
+  },
+  {
+    name: 'Bachelor of Ophthalmic Technology',
+    description: 'Study in eye care technology and ophthalmic diagnostics.',
+    duration: '4 years',
+    qualification: '10+2 with Science Stream',
+  },
+  {
+    name: 'Bachelor of Medical Laboratory Technology (BMLT)',
+    description: 'Training in clinical laboratory analysis and diagnostics.',
+    duration: '4.5 years',
+    qualification: '10+2 with Science Stream',
+  },
+  {
+    name: 'Bachelor of Sanitary Inspector (BSI)',
+    description: 'Course in public hygiene and health inspection.',
+    duration: '3 years',
+    qualification: '10+2 with Science Stream',
+  },
+  {
+    name: 'Bachelor of Medical Radiology Technology (BMRT)',
+    description: 'Specialization in radiographic imaging and medical diagnostics.',
+    duration: '3 years',
+    qualification: '10+2 with Science Stream',
+  },
+  {
+    name: 'Bachelor of ECG Technology (BECG)',
+    description: 'Focused training on cardiac diagnostics and ECG techniques.',
+    duration: '3 years',
+    qualification: '10+2 with Science Stream',
+  },
+  {
+    name: 'Bachelor of Hearing Language and Speech Therapy (BHLS)',
+    description: 'Advanced studies in speech therapy and audiology.',
+    duration: '4 years',
+    qualification: '10+2 with Science Stream',
+  }
+  
   
 ];
 
@@ -152,6 +226,10 @@ export default function Departments() {
             >
               <h3 className="text-xl font-semibold text-gray-900">{department.name}</h3>
               <p className="mt-4 text-gray-600">{department.description}</p>
+              <div className="mt-4">
+                <p className="text-sm font-medium text-blue-700">Duration: {department.duration}</p>
+                <p className="text-sm font-medium text-blue-700">Qualification: {department.qualification}</p>              
+              </div>
               
             </motion.article>
           ))}
