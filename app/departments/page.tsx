@@ -78,41 +78,18 @@ const departments = [
     year: '3year',
   },
   {
-    name: 'BVOCHM',
+    name: 'B.VOC HM',
     description: 'Bachelor in Hospital Management focusing on healthcare administration and operations.',
     head: 'Dr. Meera Nanda',
     year: '3year',
   },
   {
-    name: 'BVOD POV',
-    description: 'Bachelor in Patient Care Management aimed at developing care and clinical support professionals.',
+    name: 'B.VOC PCM',
+    description: 'Bachelor in Patient Care Management emphasizing patient care and clinical support.',
     head: 'Dr. Deepak Sharma',
     year: '3year',
   },
-  {
-    name: 'B-pharma',
-    description: 'Pharmacy program covering pharmaceutical sciences and drug development.',
-    head: 'Dr. Vikram',
-    year: '4year',
-  },
-  {
-    name: 'M.Sc Nursing',
-    description: 'Master’s program in nursing focusing on advanced clinical practice and research.',
-    head: 'Dr. Anjali Mehta',
-    year: '2year',
-  },
-  {
-    name: 'M.Pharma',
-    description: 'Master’s program in pharmacy emphasizing pharmaceutical research and development.',
-    head: 'Dr. Suresh Kumar',
-    year: '2year',
-  },
-  {
-    name: 'MHA',
-    description: 'Master in Hospital Administration focusing on healthcare management and policy.',
-    head: 'Dr. Rekha Sharma',
-    year: '2year',
-  },
+  
 ];
 
 export default function Departments() {
