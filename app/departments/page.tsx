@@ -12,34 +12,106 @@ const backgroundImages = [
 
 const departments = [
   {
-    name: 'Anatomy',
-    description: 'In-depth study of the structure of the human body, including dissection and clinical correlations.',
+    name: 'BSc Nursing',
+    description: 'Comprehensive nursing program focusing on patient care and clinical skills.',
     head: 'Dr. Anjali Mehta',
+    year: '4year',
   },
   {
-    name: 'Physiology',
-    description: 'Focuses on the functions of the human body and understanding mechanisms of life processes.',
-    head: 'Dr. Suresh Nair',
+    name: 'D.Pharma',
+    description: 'Diploma course focusing on pharmaceutical sciences and drug dispensing.',
+    head: 'Dr. Suresh Kumar',
+    year: '2year',
   },
   {
-    name: 'Biochemistry',
-    description: 'Explores the chemical processes within and related to living organisms.',
-    head: 'Dr. Kavita Iyer',
+    name: 'GNM',
+    description: 'General Nursing and Midwifery program emphasizing nursing care and maternal health.',
+    head: 'Dr. Rekha Sharma',
+    year: '3.5year',
   },
   {
-    name: 'Pathology',
-    description: 'Study of diseases, their causes, processes, development, and consequences.',
-    head: 'Dr. Rohan Desai',
+    name: 'ANM',
+    description: 'Auxiliary Nurse Midwifery course centered on basic nursing and midwifery training.',
+    head: 'Dr. Neelam Kumari',
+    year: '2year',
   },
   {
-    name: 'Pharmacology',
-    description: 'Deals with drugs and their effects on the human body to treat various conditions.',
-    head: 'Dr. Nidhi Kapoor',
+    name: 'DOTT',
+    description: 'Diploma in Operation Theatre Technology covering surgical procedures and theatre management.',
+    head: 'Dr. Sanjay Verma',
+    year: '2year',
   },
   {
-    name: 'Community Medicine',
-    description: 'Public health and preventive medicine for communities and population groups.',
-    head: 'Dr. Amitabh Bhushan',
+    name: 'DMLT',
+    description: 'Diploma in Medical Laboratory Technology focusing on clinical lab testing and diagnostics.',
+    head: 'Dr. R.K. Singh',
+    year: '2year',
+  },
+  {
+    name: 'DRIT',
+    description: 'Diploma in Radio Imaging Technology for diagnostic imaging and radiographic procedures.',
+    head: 'Dr. Priya Sinha',
+    year: '2year',
+  },
+  {
+    name: 'DPCM',
+    description: 'Diploma in Patient Care Management aimed at healthcare support and patient handling skills.',
+    head: 'Dr. Manoj Tiwari',
+    year: '1year',
+  },
+  {
+    name: 'B.VOC MLT',
+    description: 'Bachelor in Medical Laboratory Technology emphasizing diagnostic techniques and lab management.',
+    head: 'Dr. Alok Das',
+    year: '3year',
+  },
+  {
+    name: 'B.VOC RIT',
+    description: 'Bachelor in Radiology Imaging Technology covering modern radiographic techniques.',
+    head: 'Dr. Renu Jha',
+    year: '3year',
+  },
+  {
+    name: 'B.VOC OTT',
+    description: 'Bachelor in Operation Theatre Technology preparing students for OT procedures and sterilization.',
+    head: 'Dr. Vikram Chauhan',
+    year: '3year',
+  },
+  {
+    name: 'BVOCHM',
+    description: 'Bachelor in Hospital Management focusing on healthcare administration and operations.',
+    head: 'Dr. Meera Nanda',
+    year: '3year',
+  },
+  {
+    name: 'BVOD POV',
+    description: 'Bachelor in Patient Care Management aimed at developing care and clinical support professionals.',
+    head: 'Dr. Deepak Sharma',
+    year: '3year',
+  },
+  {
+    name: 'B-pharma',
+    description: 'Pharmacy program covering pharmaceutical sciences and drug development.',
+    head: 'Dr. Vikram',
+    year: '4year',
+  },
+  {
+    name: 'M.Sc Nursing',
+    description: 'Master’s program in nursing focusing on advanced clinical practice and research.',
+    head: 'Dr. Anjali Mehta',
+    year: '2year',
+  },
+  {
+    name: 'M.Pharma',
+    description: 'Master’s program in pharmacy emphasizing pharmaceutical research and development.',
+    head: 'Dr. Suresh Kumar',
+    year: '2year',
+  },
+  {
+    name: 'MHA',
+    description: 'Master in Hospital Administration focusing on healthcare management and policy.',
+    head: 'Dr. Rekha Sharma',
+    year: '2year',
   },
 ];
 
@@ -71,7 +143,7 @@ export default function Departments() {
               exit={{ opacity: 0 }}
             />
           </AnimatePresence>
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
 
         {/* Hero Content */}
@@ -98,7 +170,6 @@ export default function Departments() {
       {/* Departments Grid */}
       <section className="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
         <div className="mx-auto max-w-2xl lg:text-center">
-          {/* <h2 className="text-base font-semibold leading-7 text-blue-600">Departments</h2> */}
           <p className="mt-1 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Excellence in Medical Education
           </p>
@@ -106,8 +177,8 @@ export default function Departments() {
 
         <div className="mx-auto mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
           {departments.map((department, index) => (
-            <motion.div
-              key={department.name}
+            <motion.article
+              key={`${department.name}-${index}`}
               className="rounded-lg bg-white shadow-lg p-8 hover:shadow-2xl transition-all duration-300 border-t-4 border-blue-500"
               whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0, y: 50 }}
@@ -120,7 +191,10 @@ export default function Departments() {
               <p className="mt-6 text-sm font-semibold text-blue-600">
                 HOD: {department.head}
               </p>
-            </motion.div>
+              <p className="mt-2 text-sm text-blue-600">
+                Duration: {department.year}
+              </p>
+            </motion.article>
           ))}
         </div>
       </section>

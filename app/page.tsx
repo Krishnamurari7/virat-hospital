@@ -16,9 +16,7 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [videos.length]);
 
- 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [current, setCurrent] = useState(0);
   const posters = [
     "/images/post.jpg",
     "/images/postt.jpg",
@@ -28,10 +26,10 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % posters.length);
+      setCurrentSlide((prev) => (prev + 1) % posters.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [posters.length]);
 
   const handlePrev = () => {
     setCurrentSlide((prev) =>

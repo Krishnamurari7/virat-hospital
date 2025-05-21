@@ -1,20 +1,22 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Navigation from '@/components/Navigation';
+import { useEffect, useState } from "react";
+import Navigation from "@/components/Navigation";
 
 export default function About() {
   const backgroundImages = [
-    '/images/images1.avif', // Add your image paths here
-    '/images/images2.avif',
-    '/images/images3.avif',
+    "/images/images1.avif", // Add your image paths here
+    "/images/images2.avif",
+    "/images/images3.avif",
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
+      setCurrentImageIndex(
+        (prevIndex) => (prevIndex + 1) % backgroundImages.length
+      );
     }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(interval);
@@ -23,40 +25,60 @@ export default function About() {
   return (
     <div className="bg-white">
       <Navigation />
-      
+
       {/* Hero Section */}
-      <div 
-        className="relative isolate overflow-hidden bg-gradient-to-b from-blue-100/20" 
+      <div
+        className="relative isolate overflow-hidden bg-gradient-to-b from-blue-100/20"
         style={{
           backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          transition: 'background-image 1s ease-in-out',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          transition: "background-image 1s ease-in-out",
         }}
       >
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 backdrop-brightness-75">
           <div className="mx-auto max-w-2xl lg:mx-0 text-white">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">About Virat Life Hospital</h1>
+            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+              Virat Life Hospital{" "}
+              <span className="bg-gradient-to-b from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                {" "}
+                Viratlife Institute of Medical Science (VIMS)
+              </span>
+            </h1>
             <p className="mt-6 text-lg leading-8">
-              Virat Life Hospital is a premier healthcare institution in Patna, committed to providing exceptional medical services and education.
+              Virat Life Hospital is a premier healthcare institution in Patna,
+              committed to providing exceptional medical services and education.
             </p>
           </div>
         </div>
       </div>
 
       {/* Mission and Vision */}
-      <div className="mx-auto flex max-w-7xl px-6 lg:px-8 py-24 sm:py-32 gap-8 lg:gap-x-8">
-        <div className="mx-auto max-w-2xl lg:mx-0 *:text-center bg-gray-400/20 p-6 rounded-lg shadow-lg">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Mission</h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            To provide high-quality healthcare services and medical education while maintaining the highest standards of patient care and professional excellence.
-          </p>
-        </div>
-        <div className="mx-auto max-w-2xl lg:mx-0 *:text-center bg-gray-400/20 p-6 rounded-lg shadow-lg">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Vision</h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            To be the leading healthcare and medical education institution in Bihar, known for excellence in patient care, research, and education.
-          </p>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Mission */}
+          <div className="w-full lg:w-1/2 bg-gray-400/20 p-6 rounded-lg shadow-lg text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Our Mission
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              To provide high-quality healthcare services and medical education
+              while maintaining the highest standards of patient care and
+              professional excellence.
+            </p>
+          </div>
+
+          {/* Vision */}
+          <div className="w-full lg:w-1/2 bg-gray-400/20 p-6 rounded-lg shadow-lg text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Our Vision
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              To be the leading healthcare and medical education institution in
+              Bihar, known for excellence in patient care, research, and
+              education.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -90,15 +112,18 @@ export default function About() {
 
 const facilities = [
   {
-    name: 'Modern Medical Equipment',
-    description: 'Latest diagnostic and treatment equipment for accurate and efficient healthcare delivery.',
+    name: "Modern Medical Equipment",
+    description:
+      "Latest diagnostic and treatment equipment for accurate and efficient healthcare delivery.",
   },
   {
-    name: 'Specialized Departments',
-    description: 'Comprehensive medical departments staffed by expert healthcare professionals.',
+    name: "Specialized Departments",
+    description:
+      "Comprehensive medical departments staffed by expert healthcare professionals.",
   },
   {
-    name: 'Research Facilities',
-    description: 'Advanced research laboratories and facilities for medical education and innovation.',
+    name: "Research Facilities",
+    description:
+      "Advanced research laboratories and facilities for medical education and innovation.",
   },
 ];

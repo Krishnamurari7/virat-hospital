@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, } from 'react-icons/fa';
+import { FaLinkedin, FaYoutube } from 'react-icons/fa6';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-purple-600 to-pink-600">
+    <footer className="bg-gradient-to-b from-purple-600 to-pink-600 mt-10 pt-1">
       <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex justify-center space-x-6 md:order-2">
           <Link href="https://facebook.com" className="text-white hover:text-blue-400">
@@ -14,9 +15,13 @@ export default function Footer() {
             <span className="sr-only">Instagram</span>
             <FaInstagram className="h-6 w-6" aria-hidden="true" />
           </Link>
-          <Link href="https://wa.me/917765956416" className="text-white hover:text-green-400">
-            <span className="sr-only">WhatsApp</span>
-            <FaWhatsapp className="h-6 w-6" aria-hidden="true" />
+          <Link href="https://www.youtube.com/" className="text-white hover:text-red-400">
+            <span className="sr-only">YouTube</span>
+            <FaYoutube className="h-6 w-6" aria-hidden="true" />
+          </Link>
+          <Link href="https://www.linkedin.com" className="text-white hover:text-blue-400">
+            <span className="sr-only">LinkedIn</span>
+            <FaLinkedin className="h-6 w-6" aria-hidden="true" />
           </Link>
         </div>
         <div className="mt-4 md:order-1 md:mt-0">
