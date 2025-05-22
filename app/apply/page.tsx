@@ -17,6 +17,7 @@ export default function ApplyPage() {
     phone: '',
     dob: '',
     gender: '',
+    course: '',
     category: '',
     nationality: '',
     aadhar: '',
@@ -139,6 +140,37 @@ export default function ApplyPage() {
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                   <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            {/* Course  */}
+            <div>
+              <label htmlFor="course" className="block text-sm font-medium text-gray-900">Course</label>
+              <div className="mt-2">
+                <select
+                  name="course"
+                  id="course"
+                  value={formData.course}
+                  onChange={handleChange}
+                  className="block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  required
+                >
+                  <option value="">Select Course</option>
+                  {[
+                    'ANM', 'GNM', 'B.Sc. Nursing', 'Diploma in Physiotherapy (DPT)',
+                    'Diploma in Occupational Therapy (DOT)', 'Diploma in Orthotics and Prosthetics (DOP)',
+                    'Diploma in Operation Theatre Assistant (DOTA)', 'Diploma in Ophthalmic Assistant (DOA)',
+                    'Diploma in Medical Laboratory Technician (DMLT)', 'Diploma in Sanitary Inspector (DSI)',
+                    'Diploma in Medical Radiography (DMR)', 'Diploma in ECG (DECG)',
+                    'Diploma in Hearing Language And Speech Therapy (DHLS)', 'Bachelor in Physiotherapy (BPT)',
+                    'Bachelor of Occupational Therapy (BOT)', 'Bachelor of Orthotics and Prosthetics (BOP)',
+                    'Bachelor of Operation Theatre Technology (BOTT)', 'Bachelor of Ophthalmic Technology',
+                    'Bachelor of Medical Laboratory Technology (BMLT)', 'Bachelor of Sanitary Inspector (BSI)',
+                    'Bachelor of Medical Radiology Technology (BMRT)', 'Bachelor of ECG Technology (BECG)',
+                    'Bachelor of Hearing Language and Speech Therapy (BHLS)',
+                  ].map((course) => (
+                    <option key={course} value={course}>{course}</option>
+                  ))}
                 </select>
               </div>
             </div>
