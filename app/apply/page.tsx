@@ -15,11 +15,13 @@ export default function ApplyPage() {
     name: '',
     email: '',
     phone: '',
-    department: '',
-    role: '',
-    date: '',
-    time: '',
-    message: '',
+    dob: '',
+    gender: '',
+    category: '',
+    nationality: '',
+    aadhar: '',
+    photo: null as File | null,
+    signature: null as File | null,
   });
 
   const [currentBg, setCurrentBg] = useState(0);
@@ -36,12 +38,23 @@ export default function ApplyPage() {
     console.log('Apply form submitted:', formData);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    const { name, value, files } = e.target as HTMLInputElement;
+    if (files) {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: files[0],
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
 
   return (
@@ -81,14 +94,17 @@ export default function ApplyPage() {
           transition={{ duration: 0.8 }}
         >
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name, Email, Phone */}
+            {/* Personal Details */}
             {[
               { label: 'Full Name', name: 'name', type: 'text' },
               { label: 'Email', name: 'email', type: 'email' },
               { label: 'Phone Number', name: 'phone', type: 'tel' },
+              { label: 'Date of Birth', name: 'dob', type: 'date' },
+              { label: 'Aadhar Number', name: 'aadhar', type: 'text' },
+              { label: 'Nationality', name: 'nationality', type: 'text' },
             ].map(({ label, name, type }) => (
               <div key={name}>
-                <label htmlFor={name} className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor={name} className="block text-sm font-medium text-gray-900">
                   {label}
                 </label>
                 <div className="mt-2">
@@ -96,113 +112,93 @@ export default function ApplyPage() {
                     type={type}
                     name={name}
                     id={name}
-                    value={formData[name as keyof typeof formData]}
+                    value={formData[name as keyof typeof formData] as string}
                     onChange={handleChange}
-                    className="block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     required
+                    className="block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   />
                 </div>
               </div>
             ))}
 
-            {/* Department */}
+            {/* Gender */}
             <div>
-              <label htmlFor="department" className="block text-sm font-medium leading-6 text-gray-900">
-                Department
+              <label htmlFor="gender" className="block text-sm font-medium text-gray-900">
+                Gender
               </label>
               <div className="mt-2">
                 <select
-                  name="department"
-                  id="department"
-                  value={formData.department}
+                  name="gender"
+                  id="gender"
+                  value={formData.gender}
                   onChange={handleChange}
-                  className="block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   required
+                  className="block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 >
-                  <option value="">Select Department</option>
-                  <option value="development">Development</option>
-                  <option value="design">Design</option>
-                  <option value="marketing">Marketing</option>
-                  <option value="operations">Operations</option>
+                  <option value="">Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
             </div>
 
-            {/* Role */}
+            {/* Category */}
             <div>
-              <label htmlFor="role" className="block text-sm font-medium leading-6 text-gray-900">
-                Role Applying For
+              <label htmlFor="category" className="block text-sm font-medium text-gray-900">
+                Category
               </label>
               <div className="mt-2">
                 <select
-                  name="role"
-                  id="role"
-                  value={formData.role}
+                  name="category"
+                  id="category"
+                  value={formData.category}
                   onChange={handleChange}
-                  className="block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   required
+                  className="block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 >
-                  <option value="">Select Role</option>
-                  <option value="frontend-dev">Frontend Developer</option>
-                  <option value="backend-dev">Backend Developer</option>
-                  <option value="ui-ux-designer">UI/UX Designer</option>
-                  <option value="seo-specialist">SEO Specialist</option>
+                  <option value="">Select Category</option>
+                  <option value="General">General</option>
+                  <option value="OBC">OBC</option>
+                  <option value="SC">SC</option>
+                  <option value="ST">ST</option>
+                  <option value="EWS">EWS</option>
                 </select>
               </div>
             </div>
 
-            {/* Date and Time */}
-            <div className="flex flex-col sm:flex-row sm:space-x-4">
-              <div className="flex-1">
-                <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
-                  Available From
-                </label>
-                <div className="mt-2">
-                  <input
-                    type="date"
-                    name="date"
-                    id="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    className="block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="flex-1 mt-6 sm:mt-0">
-                <label htmlFor="time" className="block text-sm font-medium leading-6 text-gray-900">
-                  Preferred Time Slot
-                </label>
-                <div className="mt-2">
-                  <input
-                    type="time"
-                    name="time"
-                    id="time"
-                    value={formData.time}
-                    onChange={handleChange}
-                    className="block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    required
-                  />
-                </div>
-              </div>
+            {/* Photo Upload */}
+            <div>
+              <label htmlFor="photo" className="block text-sm font-medium text-gray-900">
+                Passport Size Photo
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                name="photo"
+                id="photo"
+                onChange={handleChange}
+                required
+                className="mt-2 block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-blue-600 file:text-white hover:file:bg-blue-700"
+              />
             </div>
 
-            {/* Message */}
+            {/* Signature Upload */}
             <div>
-              <label htmlFor="message" className="block text-sm font-medium leading-6 text-gray-900">
-                Additional Information
+              <label htmlFor="signature" className="block text-sm font-medium text-gray-900">
+                Signature Upload
               </label>
-              <div className="mt-2">
-                <textarea
-                  name="message"
-                  id="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                />
-              </div>
+              <input
+                type="file"
+                accept="image/*"
+                name="signature"
+                id="signature"
+                onChange={handleChange}
+                required
+                className="mt-2 block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-blue-600 file:text-white hover:file:bg-blue-700"
+              />
             </div>
+
 
             {/* Submit */}
             <div className="pt-6">
